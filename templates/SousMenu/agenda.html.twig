@@ -1,0 +1,511 @@
+
+
+{% block body_dashboard %}
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- main todo container -->
+    <div class="container">
+        <!-- header that has input and add button -->
+        <header>
+            <h1>Ma tache du jour</h1>
+
+            <div class="input-section">
+                <input id="todo-input" type="text" placeholder="📑 ajoutez votre tache"
+                       class="input w-full max-w-xs" />
+                <button id="add-button" class="btn btn-add ">
+                    <i class="bx bx-plus bx-sm"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- delete buttons -->
+
+        <div class="todos-filter">
+
+            <button id="delete-selected" class="btn btn-ghost delete-selected-btn">
+              Supprimer la tache
+            </button>
+            <button id="delete-all" class="btn btn-ghost delete-all-btn">
+                Tout supprimer
+            </button>
+        </div>
+
+
+        <!-- this is the dynamic content which dds ups all the todos -->
+        <ul id="all-todos" class="todos-list">
+
+        </ul>
+
+
+        <!-- dropdown throgh which we can apply filters -->
+        <div class="filters">
+            <div class="dropdown">
+                <button class="dropbtn">Filter</button>
+                <div class="dropdown-content">
+                    <a href="#" id="all">All</a>
+                    <a href="#" id="rem">Pending</a>
+                    <a href="#" id="com">Completed</a>
+                </div>
+            </div>
+
+            <!-- value showing completed task and all -->
+            <div class="completed-task">
+                <p>Terminé :  <span id="c-count">0</span></p>
+            </div>
+            <div class="remaining-task">
+                <p>Toute les taches : <span id="r-count">0</span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* for hide scroll bar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body{
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{{ asset('images/bgform.jpg') }}");
+        }
+
+
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 400px;
+            min-width: 500px;
+            max-width: 1000px;
+            background-image: linear-gradient(#f7ff00, rgb(249, 146, 164));
+            border-radius: 20px;
+            padding: 20px;
+        }
+        /* header */
+
+        .container header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 30px;
+            font-weight: bolder;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            word-spacing: 5px;
+        }
+
+
+        /* input-section */
+
+        header .input-section {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .input-section input {
+            margin-right: 10px;
+            max-width: 100%;
+        }
+        .max-w-xs {
+            max-width: 20rem;
+        }
+        .w-full {
+            width: 100%;
+        }
+
+        .input {
+            border-radius: 0.5rem;
+            height: 3rem;
+            border-width: 2px solid black;
+            flex-shrink: 1;
+            padding: 0rem 1rem;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        /* todofilters */
+
+        .todos-filter, .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+        .filters {
+            margin-top: 10px;
+        }
+
+
+        .todos-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100%;
+            max-height: 54vh;
+            overflow-y: scroll;
+            width: 100%;
+        }
+
+        .todos-list .todo-item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .todo-item{
+            background-color: wheat;
+            border-radius: 12px;
+            margin-bottom: 5px;
+        }
+
+        .todo-item p{
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        .todo-item .todo-actions {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: end;
+            width: 100%;
+            height: 100%;
+        }
+
+        .todo-actions button:not(:last-child){
+            margin-right: 10px;
+        }
+
+        .di, .ci{
+            pointer-events: none;
+        }
+
+
+        .line{
+            text-decoration: line-through;
+        }
+
+
+        /*buttons styling*/
+        .btn{
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            outline: none;
+            text-align: center;
+            border-radius: 0.5rem;
+            height: 3rem;
+            min-height: 3rem;
+            text-transform: uppercase;
+            border-width:1px;
+            animation: button-pop var(--animation-btn,.25s)ease-in-out;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            font-size: .875rem;
+            font-weight: 600;
+            line-height: 1em;
+            text-decoration-line: none;
+            transition: .2s all cubic-bezier(.4,0,.2,1);
+            display: inline-flex;
+        }
+
+        .btn:hover{
+            background-color: rgb(108, 109, 110);
+            color: white;
+        }
+
+
+        .btn-add{
+            background-color: green;
+            color: white
+        }
+        .btn-add:hover{
+            background-color: white;
+            color:rgb(255, 221, 0);
+        }
+
+        .btn-success{
+            opacity: 1;
+            background-color:rgb(50, 177, 50);
+            color: white
+        }
+
+        .btn-success:hover{
+            background-color: white;
+            color:rgb(50, 177, 50);
+        }
+
+        .btn-error{
+            opacity: 1;
+            background-color:rgb(246, 77, 4);
+            color: white
+        }
+        .btn-error:hover{
+            background-color: white;
+            color:rgb(246, 77, 4);
+        }
+        /*
+        dropdown*/
+        .dropbtn {
+            background-color: green;
+            color: white;
+            padding: 10px 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: white;
+            color: yellowgreen;
+        }
+
+
+
+        /* Responsive */
+        @media only screen and (max-width: 530px) {
+            .container {
+                margin: 0 20px;
+                max-width: 96%;
+                min-width: 96%;
+            }
+        }
+    </style>
+
+
+    <script>
+        var todoList = []
+        var comdoList = [];
+        var remList = [];
+        var addButton = document.getElementById("add-button")
+        var todoInput = document.getElementById("todo-input")
+        var deleteAllButton = document.getElementById("delete-all")
+        var allTodos = document.getElementById("all-todos");
+        var deleteSButton = document.getElementById("delete-selected")
+
+
+        //event listners for add and delete
+        addButton.addEventListener("click", add)
+        deleteAllButton.addEventListener("click", deleteAll)
+        deleteSButton.addEventListener("click", deleteS)
+
+
+        //event listeners for filtersk
+        document.addEventListener('click', (e) => {
+            if (e.target.className.split(' ')[0] == 'complete' || e.target.className.split(' ')[0] == 'ci') {
+                completeTodo(e);
+            }
+            if (e.target.className.split(' ')[0] == 'delete' || e.target.className.split(' ')[0] == 'di') {
+                deleteTodo(e)
+            }
+            if (e.target.id == "all") {
+                viewAll();
+            }
+            if (e.target.id == "rem") {
+                viewRemaining();
+            }
+            if (e.target.id == "com") {
+                viewCompleted();
+            }
+
+        })
+        //event listner for enter key
+        todoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                add();
+            }
+        });
+
+
+        //updates the all the remaining, completed and main list
+        function update() {
+            comdoList = todoList.filter((ele) => {
+                return ele.complete
+
+            })
+            remList = todoList.filter((ele) => {
+                return !ele.complete
+            })
+            document.getElementById("r-count").innerText = todoList.length.toString();
+            document.getElementById("c-count").innerText = comdoList.length.toString();
+
+        }
+
+        //adds the task in main list
+
+        function add() {
+            var value = todoInput.value;
+            if (value === '') {
+                alert("😮 Task cannot be empty")
+                return;
+            }
+            todoList.push({
+                task: value,
+                id: Date.now().toString(),
+                complete: false,
+            });
+
+            todoInput.value = "";
+            update();
+            addinmain(todoList);
+        }
+
+
+        //renders the main list and views on the main content
+
+        function addinmain(todoList) {
+            allTodos.innerHTML = ""
+            todoList.forEach(element => {
+                var x = `<li id=${element.id} class="todo-item">
+    <p id="task"> ${element.complete ? `<strike>${element.task}</strike>` : element.task} </p>
+    <div class="todo-actions">
+                <button class="complete btn btn-success">
+                    <i class=" ci bx bx-check bx-sm"></i>
+                </button>
+
+                <button class="delete btn btn-error" >
+                    <i class="di bx bx-trash bx-sm"></i>
+                </button>
+            </div>
+        </li>`
+                allTodos.innerHTML += x
+            });
+        }
+
+
+        //deletes and indiviual task and update all the list
+        function deleteTodo(e) {
+            var deleted = e.target.parentElement.parentElement.getAttribute('id');
+            todoList = todoList.filter((ele) => {
+                return ele.id != deleted
+            })
+
+            update();
+            addinmain(todoList);
+
+        }
+
+        //completes indiviaula task and updates all the list
+        function completeTodo(e) {
+            var completed = e.target.parentElement.parentElement.getAttribute('id');
+            todoList.forEach((obj) => {
+                if (obj.id == completed) {
+                    if (obj.complete == false) {
+                        obj.complete = true
+                        e.target.parentElement.parentElement.querySelector("#task").classList.add("line");
+                    } else {
+                        obj.complete = false
+
+                        e.target.parentElement.parentElement.querySelector("#task").classList.remove("line");
+                    }
+                }
+            })
+
+            update();
+            addinmain(todoList);
+        }
+
+
+        //deletes all the tasks
+        function deleteAll(todo) {
+
+            todoList = []
+
+            update();
+            addinmain(todoList);
+
+        }
+
+        //deletes only completed task
+        function deleteS(todo) {
+
+            todoList = todoList.filter((ele) => {
+                return !ele.complete;
+            })
+
+
+            update();
+            addinmain(todoList);
+
+        }
+
+
+        // functions for filters
+        function viewCompleted() {
+            addinmain(comdoList);
+        }
+
+        function viewRemaining() {
+
+            addinmain(remList);
+        }
+        function viewAll() {
+            addinmain(todoList);
+        }
+    </script>
+{% endblock %}

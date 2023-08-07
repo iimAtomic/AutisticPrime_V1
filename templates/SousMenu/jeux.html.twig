@@ -1,0 +1,305 @@
+
+
+{% block body_dashboard %}
+    <div class="dashboard-formations">
+
+        <div id="orderContainerTop">
+            <div class="details">
+                <p style="font-size: 20px" id="titre">Vos JEUX</p>
+            </div>
+            <div class="orderSearchDiv">
+                <div class="icon-wrap">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.66536 13.9999C11.1632 13.9999 13.9987 11.1644 13.9987 7.66659C13.9987 4.16878 11.1632 1.33325 7.66536 1.33325C4.16756 1.33325 1.33203 4.16878 1.33203 7.66659C1.33203 11.1644 4.16756 13.9999 7.66536 13.9999Z" stroke="#4C4C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.6654 14.6666L13.332 13.3333" stroke="#4C4C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+                </div>
+                <input id="orderSearch" type="text" placeholder="Chercher un JEUX" />
+            </div>
+            <div class="orderFiltreDiv">
+                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.047 12.7134C10.047 13.1201 9.78035 13.6534 9.44035 13.8601L8.50037 14.4668C7.62703 15.0068 6.4137 14.4001 6.4137 13.3201V9.75342C6.4137 9.28008 6.14703 8.67342 5.8737 8.34009L3.31368 5.64675C2.97368 5.30675 2.70703 4.70676 2.70703 4.30009V2.75342C2.70703 1.94675 3.31371 1.34009 4.05371 1.34009H12.947C13.687 1.34009 14.2937 1.94675 14.2937 2.68675V4.16675C14.2937 4.70675 13.9537 5.38009 13.6204 5.71342" stroke="#4C4C4C" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.2115 11.0132C12.3897 11.0132 13.3448 10.0581 13.3448 8.87992C13.3448 7.70172 12.3897 6.74658 11.2115 6.74658C10.0333 6.74658 9.07812 7.70172 9.07812 8.87992C9.07812 10.0581 10.0333 11.0132 11.2115 11.0132Z" stroke="#4C4C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.7448 11.4132L13.0781 10.7466" stroke="#4C4C4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <span style="font-size: 12px">Filtrer</span>
+            </div>
+        </div>
+
+        <div id="FormationRecente">
+            <div id="VideoFormation">
+                <img src="{{ asset('images/backCode.png') }}" style="width:385px; height: 270px;">
+            </div>
+            <div id="descriptionFormation">
+                <span style="font-size: 24px ; margin-left: 5px">Formation 1</span>
+                <span style="margin-left: 5px; font-size: 18px;"> Python</span>
+
+                <div style="margin-top: 30px">
+                    <span class="HoureDiv"> 10</span>
+                    <span >:</span>
+                    <span class="HoureDiv">34</span>
+                    <span class="HoureDiv" style="background-color: #B4CD93">PM</span>
+                    <span  style="font-weight: 600;font-size: 18px;">11/05/2022</span>
+                </div>
+                <a href="">  <button style="background-color: #7FAD39;margin-top: 90px; margin-left:580px;border: none;width: 80px;height: 40px; border-radius: 6px"> Voir </button></a>
+            </div>
+        </div>
+
+        <div id="miniFomrmation">
+            <div style="display: flex;flex-direction: row ;margin-top:-20px;align-items: flex-start; width: 1100px;">
+                <p style="font-size: 20px;height: 20px" >Autres jeux</p>
+                <div id="trait" style="margin-top: 15px"></div>
+            </div>
+            <div id ="miniform">
+                <div id="video">
+                    <div id="ecran">
+                       <img src="{{ asset('images/codingGame.png') }}" style="width:207px; height: 100px;">
+                    </div>
+                    <span style="margin-top: 10px ; font-weight: bold; font-size: 18px">Formation</span>
+                    <a href=""><button style="background-color: #7FAD39;margin-top: 50px; margin-left:120px;border: none;width: 80px;height: 30px; border-radius: 6px"> Voir</button></a>
+                </div>
+                <div id="video">
+                    <div id="ecran">
+                        <img src="{{ asset('images/ff.png') }}" style="width:207px; height: 100px;">
+                    </div>
+                    <span style="margin-top: 10px ; font-weight: bold; font-size: 18px">Formation</span>
+                    <a href=""><button style="background-color: #7FAD39;margin-top: 50px; margin-left:120px;border: none;width: 80px;height: 30px; border-radius: 6px"> Voir</button></a>
+                </div>
+                <div id="video">
+                    <div id="ecran">
+                        <img src="{{ asset('images/fortnite.png') }}" style="width:207px; height: 100px;">
+
+                    </div>
+                    <span style="margin-top: 10px ; font-weight: bold; font-size: 18px">Formation</span>
+                    <a href=""><button style="background-color: #7FAD39;margin-top: 50px; margin-left:120px;border: none;width: 80px;height: 30px; border-radius: 6px"> Voir</button></a>
+                </div>
+                <div id="video">
+                    <div id="ecran">
+                        <img src="{{ asset('images/backCode.png') }}" style="width:207px; height: 100px;">
+
+                    </div>
+                    <span style="margin-top: 10px ; font-weight: bold; font-size: 18px">Formation</span>
+                    <a href=""><button style="background-color: #7FAD39;margin-top: 50px; margin-left:120px;border: none;width: 80px;height: 30px; border-radius: 6px"> Voir</button></a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="navigation">
+
+        </div>
+
+
+
+        {# <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {%  if previous is defined %}
+                    <li class="page-item"><a class="page-link" href="">Previous</a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                {% endif %}
+
+                {% for page in oldFormations.page %}
+                    {% if current is defined %}
+                        <li class="page-item active"><span class="page-link">{{ page.page_number }}</span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ page.path }}">{{ page.page_number }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if next is defined %}
+                    <li class="page-item"><a class="page-link" href="">Next</a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>#}
+
+    </div>
+
+
+    <style>
+
+
+        .pagination{
+
+            width: 1100px;
+            height: 45px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: flex-end;}
+
+
+        #secondText{
+            display: flex;
+            flex-direction: row;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        #firstText{
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+            color:#9F9F9F;
+        }
+
+        #lastText{
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+            color: #4C4C4C;
+        }
+        .minidivCircle{
+            color: #4C4C4C;
+            background-color:#E6E6E6;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #ecran{
+            width: 200px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.87);;
+            display: flex;
+            justify-content: center;
+        }
+
+        #video{
+            width: 226px;
+            height: 236px;
+            background: #FCFCFC;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            margin-right: 68px;
+
+        }
+
+        #miniform{
+            width: 1100px;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+        #trait{
+            border-top: 1px solid #000;
+            width: 900px;
+            margin-left: 80px;
+            margin-top: 12px;
+        }
+
+        #miniFomrmation{
+            width: 1100px;
+            display: flex;
+            margin-top: 50px;
+            flex-direction: column;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .HoureDiv{
+            width:30px;
+            height: 27px;
+            box-sizing: border-box;
+            border: 2px solid #E6E6E6;
+            border-radius: 4px;
+            margin: 5px;
+            padding: 2px;
+            font-size: 12px;
+        }
+
+        #VideoFormation{
+            height: 260px;
+            width: 400px;
+            margin: 5px;
+            /*background-color: #F0ABFC;*/
+        }
+        #descriptionFormation{
+            height: 260px;
+            width: 700px;
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        #FormationRecente{
+            padding: 10px;
+            width: 1100px;
+            Height : 300px;
+            background: #F7F7F7;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #orderContainerTop{
+            width: 1100px;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .details{
+            width: 260px;
+        }
+        #orderSearch{
+            border: none;
+            width: 220px;
+            background-color: #FCFCFC;
+            height: 24px;
+            margin-left: 5px;
+        }
+        .orderSearchDiv{
+            display: flex;
+            flex-direction: row;
+            width:280px;
+            height: 27px;
+            margin-left : 470px;
+            box-sizing: border-box;
+            border: 1px solid #E6E6E6;
+            border-radius: 4px;
+            background-color: #FCFCFC;
+            padding: 2px;
+            justify-content: center;
+            align-items: center;
+        }
+        .orderFiltreDiv{
+            width:80px;
+            height: 27px;
+            margin-left: 10px;
+            box-sizing: border-box;
+            border: 1px solid #E6E6E6;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-formations {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body{
+            background-image: url("{{ asset('images/bgform.jpg') }}");
+        }
+    </style>
+{% endblock %}

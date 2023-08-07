@@ -1,0 +1,405 @@
+
+
+ {% block body_dashboard %}
+
+     <div id="containerPrincipal">
+
+         <div id="containerLeft">
+
+             <div id="container1">
+                 <div id="buttonContainer1">Nombre de temps: </div>
+                 <button id="buttonContainer2">Acceder au dashboard</button>
+             </div>
+             <div id="container2">
+             </div>
+             <div id="container3">
+                 <input id="message" type="text" placeholder="Ecrivez un message..."/>
+                 <input type="submit"  id="submit" value="Send">
+             </div>
+         </div>
+         <div id="containerRight">
+             <p style="margin-bottom: 50px; margin-top: 10px">Prgrammer des heures</p>
+             <div id="container4">
+                 <button id="buttonContainer3">Terminé</button>
+                 <button id="buttonContainer4">A VENIR</button>
+             </div>
+             <div id="container5">
+                 {# j'ai pas reussi a la syncrhonisé #}
+                 <div id="divMonth" style="margin-top: 20px">
+                     <p style="margin-top: 10px;margin-left: 5px">Janvier</p>
+                     <p style="margin-top: 10px; margin-left: 380px">2023</p>
+                 </div>
+                 <div id="divDay">
+                     <div id="dateContainer1">
+                         <span>12</span>
+                         <span>12</span>
+                     </div>
+                     <div id="dateContainer2">
+                         <span >1 unitée | - 15 min</span>
+                     </div>
+                     <a href=""><div id="dateContainer3"> <a>Acceder a la tache</a></div></a>
+
+                 </div>
+                 <div id="divDay">
+                     <div id="dateContainer1">
+                         <span>12</span>
+                         <span>12</span>
+                     </div>
+                     <div id="dateContainer2">
+                         <span >1 unitée | - 15 min</span>
+                     </div>
+                     <a href=""><div id="dateContainer3"> <a>Acceder a la tache</a></div></a>
+
+                 </div>
+                 <div id="divDay">
+                     <div id="dateContainer1">
+                         <span>12</span>
+                         <span>12</span>
+                     </div>
+                     <div id="dateContainer2">
+                         <span >1 unitée | - 15 min</span>
+                     </div>
+                     <a href=""><div id="dateContainer3"> <a>Acceder a la tache</a></div></a>
+
+                 </div>
+                 <div id="divDay">
+                     <div id="dateContainer1">
+                         <span>12</span>
+                         <span>12</span>
+                     </div>
+                     <div id="dateContainer2">
+                         <span >1 unitée | - 15 min</span>
+                     </div>
+                     <a href=""><div id="dateContainer3"> <a>Acceder a la tache</a></div></a>
+
+                 </div>
+
+
+
+
+
+             </div>
+         </div>
+
+     </div>
+
+     <style>
+
+         #container5::-webkit-scrollbar {
+             width: 12px; /* width of the entire scrollbar */
+         }
+
+         #container5::-webkit-scrollbar-track {
+             background: #FCFCFC; /* color of the tracking area */
+             border-radius: 8px;
+         }
+
+         #container5::-webkit-scrollbar-thumb {
+             background-color: #c2c1c1;
+             border-radius: 20px;
+             border: 3px solid #FCFCFC;
+         }
+         #container2::-webkit-scrollbar {
+             width: 12px; /* width of the entire scrollbar */
+         }
+
+         #container2::-webkit-scrollbar-track {
+             background: #FCFCFC; /* color of the tracking area */
+             border-radius: 8px;
+         }
+
+         #container2::-webkit-scrollbar-thumb {
+             background-color: #c2c1c1;
+             border-radius: 20px;
+             border: 3px solid #FCFCFC;
+         }
+         #dateContainer1{
+             width: 100px;
+             height: 100px;
+             background: rgba(200, 29, 29, 0.5);
+             margin-left: 5px;
+             border-radius: 8px;
+             justify-content: center;
+             align-items: center;
+             display: flex;
+             flex-direction: column;
+         }
+
+         #dateContainer2{
+             width: 150px;
+             height: 100px;
+             margin-left: 10px;
+             display: flex;
+             flex-direction: column;
+             padding: 10px;
+         }
+
+         #dateContainer3{
+             width: 150px;
+             height: 100px;
+             margin-left: 60px;
+             display: flex;
+             align-items: center;
+             justify-content: flex-end;
+         }
+
+
+         #divMonth{
+             width: 480px;
+             height: 30px;
+             display: flex;
+             flex-direction: row;
+             align-items: center;
+         }
+         #divDay{
+             display: flex;
+             flex-direction: row;
+             width: 480px;
+             margin-bottom: 10px;
+         }
+         #container4{
+             width: 490px;
+             height: 70px;
+             margin: 5px;
+             display: flex;
+             flex-direction: row;
+             justify-content: space-around;
+             align-items: center;
+         }
+         #container5{
+             overflow-y: scroll;
+             width: 490px;
+             height: 450px;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+
+         }
+         #message{
+             border: none;
+             width: 660px;
+             background-color: #D9D9D9;
+             height: 30px;
+             margin-left: 10px;
+         }
+
+         #buttonContainer1{
+             width:450px;
+             height: 50px;
+             border: none;
+             background: #FCFCFC;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 8px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+
+         }
+         #buttonContainer2{
+             width:200px;
+             height: 50px;
+             border: none;
+             background: #B4CD93;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 8px;
+             margin-left: 180px;
+         }
+         #buttonContainer3{
+             width:190px;
+             height: 50px;
+             background: #FCFCFC;
+             border: 2px solid  #7FAD39;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 8px;
+         }
+         #buttonContainer4{
+             width:190px;
+             height: 50px;
+             border: 2px solid  #7FAD39;
+             background:  #7FAD39;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 8px;
+         }
+
+
+         .txtA{
+             width: 350px;
+             height: 70px;
+             background-color: #D9D9D9;
+             border-radius: 8px;
+             margin-right: 300px;
+             margin-bottom: 10px;
+             font-size: 20px;
+             padding: 10px;
+
+         }
+
+
+         .txtB{
+             width: 350px;
+             height: 70px;
+             background-color: #D9D9D9;
+             border-radius: 8px;
+             margin-left: 300px;
+             margin-bottom: 10px;
+             font-size: 20px;
+             padding: 10px;
+
+         }
+
+
+         #containerPrincipal{
+             width: 1400px;
+             height: 700px;
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+         }
+
+         #containerLeft{
+             width: 800px;
+             height: 660px;
+             display: flex;
+             flex-direction: column;
+             margin: 5px;
+         }
+
+
+         #containerRight{
+             width: 500px;
+             height: 652px;
+             display: flex;
+             flex-direction: column;
+             margin: 5px;
+             align-items: center;
+             padding: 10px;
+             background: #FCFCFC;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 8px;
+         }
+
+         #container1{
+             width: 720px;
+             height:100px;
+             display: flex;
+             flex-direction: row;
+             margin: 5px;
+         }
+
+         #container2{
+             overflow-y: scroll;
+             width: 720px;
+             height:470px;
+             background-color: #F2F2F2;
+             display: flex;
+             flex-direction: column;
+             margin: 5px;
+             padding: 10px;
+             align-items: center;
+             border-radius: 8px;
+             margin-bottom: 20px;
+         }
+
+         #container3{
+
+             width: 720px;
+             height:50px;
+             background-color: #D9D9D9;
+             display: flex;
+             flex-direction: row;
+             margin: 5px;
+             align-items: center;
+             border-radius: 8px;
+         }
+
+
+         body{
+             background-image: url("{{ asset('images/bgform.jpg') }}");
+         }
+     </style>
+
+     <script>
+
+         const button1 = document.getElementById("buttonContainer3");
+         const button2 = document.getElementById("buttonContainer4");
+
+         button1.addEventListener("click", function() {
+             button2.style.backgroundColor = "#FCFCFC";
+             button1.style.backgroundColor = "#7FAD39";
+         });
+
+         button2.addEventListener("click", function() {
+             button1.style.backgroundColor = "#FCFCFC";
+             button2.style.backgroundColor = "#7FAD39";
+         });
+         const socket = new WebSocket("ws://localhost:3001");
+         socket.addEventListener("open", function() {
+             console.log("CONNECTED");
+         });
+         function addMessage( message) {
+             const messageHTML ="<div class='txtA'>" + message + "</div>"; ;
+             document.getElementById("container2").innerHTML += messageHTML
+         }
+         function addMessage2( message) {
+             const messageHTML ="<div class='txtB'>" + message + "</div>"; ;
+             document.getElementById("container2").innerHTML += messageHTML
+         }
+         socket.addEventListener("message", function(e) {
+             console.log(e.data);
+             try
+             {
+                 const message = JSON.parse(e.data);
+                 addMessage( message.message);
+             }
+             catch(e)
+             {
+                 // Catch any errors
+             }
+         });
+
+
+         document.getElementById("submit").addEventListener("click", function() {
+             const message = {
+                 message: document.getElementById("message").value
+
+             };
+             socket.send(JSON.stringify(message));
+             addMessage2( message.message);
+
+         })
+
+
+
+         const buttonTermine = document.getElementById("buttonContainer3");
+         const buttonAVenir = document.getElementById("buttonContainer4");
+         const creaneauCoachings = document.querySelectorAll("#divDay");
+
+         buttonTermine.addEventListener("click", () => {
+             const now = new Date();
+             creaneauCoachings.forEach((creneau) => {
+                 const creneauDate = new Date(creneau.querySelector("#date").textContent);
+                 if (creneauDate < now) {
+                     creneau.style.display = "flex";
+                 } else {
+                     creneau.style.display = "none";
+                 }
+             });
+         });
+
+         buttonAVenir.addEventListener("click", () => {
+             const now = new Date();
+             creaneauCoachings.forEach((creneau) => {
+                 const creneauDate = new Date(creneau.querySelector("#date").textContent);
+                 if (creneauDate > now) {
+                     creneau.style.display = "flex";
+                 } else {
+                     creneau.style.display = "none";
+                 }
+             });
+         });
+
+
+         buttonAVenir.click();
+     </script>
+
+ {% endblock %}

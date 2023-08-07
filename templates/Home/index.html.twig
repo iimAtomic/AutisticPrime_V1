@@ -1,0 +1,288 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+   {# {{ dump(app.user.roles) }} #}
+
+    <nav>
+        <div id="logo"></div>
+        <div id="menu">
+            <a href="{{ path('app_product') }}"> <p>Acceuil</p></a>
+           <p>Menu</p>
+            {% if app.user.roles ==['ROLE_ADMIN', 'ROLE_USER'] %}
+                 <a href="{{ path('admin') }}"><p style=" color :#A72329">Dashboard</p></a>
+            {% endif %}
+        </div>
+        {% if app.user %}
+        <a href="{{ path('app_logout') }}" style="text-decoration: none"> <div id="panier" > Deconnection <img id="logout" src="{{ asset('images/logout.png') }}" alt="logout"></div></a>
+        {% endif %}
+    </nav>
+
+    <div id="Container">
+
+
+        <div id="containerLeft">
+            <div id="imageleft" style=" background-size:cover  "> <img src="{{ asset('images/rubixCube.png') }}" style="width: 500px"></div>
+            <div id="detailsL">
+                <span id="nom" style="color: #ecfb04">AUTISTIC PRIME </span>
+                <span id="description" > Description : </span>
+            </div>
+
+        </div>
+        <div id="containerRight">
+            {% for i in fourProduct %}
+                <div id="product">
+                    <div id="image" style="background-image:url('{{ asset('images/products/' ~ i.image) }}'); background-size:cover;"></div>
+                    <div id="details">
+                        <span id="nom">{{ i.name }}</span>
+                        <span id="voirPlus"><a href="{{ path('app_menu', {'description': i.description}) }}">Voir plus</a></span>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div id="containerdown">
+        {% for a in products %}
+        <div id="product" >
+            <div id="image"  style="background-image:url('{{ asset('images/products/'~a.image) }}') ; background-size:cover  "></div>
+            <div id="details">
+                <span id="nom"> {{ a.name }}</span>
+                <span id="voirPlus"> Voir plus </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {{ knp_pagination_render(products) }}
+    </div>
+
+    <style>
+
+
+        #imageleft{
+            background-size: cover;
+        }
+
+        #description{
+            color: #B0413E ;
+            font-family:Trebuchet MS, serif;
+            font-size: 25px ;
+            height: 18px;
+            margin :15px
+        }
+        #imageleft{
+            align-items: center;
+            width: 496px;
+            height: 430px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        #details{
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        #detailsL{
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 60px;
+        }
+
+        #voirPlus{
+            color: #A72329 ;
+            font-family:"Trebuchet MS", serif;
+            font-size: 25px ;
+            height: 18px;
+            margin-top: 20px;
+            margin-left: 260px;
+        }
+
+         #nom{
+             color: #703C76;
+             font-family: "Arial Black", serif;
+             font-size: 35px ;
+             margin: 15px;
+         }
+        #description{
+             color: white;
+             font-family: "Arial Black", serif;
+             font-size: 15px ;
+              text-align: justify;
+            width: 400px;
+            height: 300px;
+            margin-left: -20px;
+         }
+
+        #image{
+            width: 396px;
+            height: 250px;
+            background-color: #B0413E;
+            border-radius: 30px;
+        }
+
+        #product{
+            padding: 2px;
+            width: 400px;
+            height: 450px;
+            background-color: rgba(225, 223, 223, 0.5);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #containerRight{
+            width: 900px;
+            height: 950px;
+            border-radius: 30px;
+            margin-left: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 10px;
+        }
+        #containerdown{
+            width: 1300px;
+            height: 600px;
+            border-radius: 30px;
+            margin-left: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        #containerLeft{
+            width: 500px;
+            height: 900px;
+            border-radius: 30px;
+            background-color: #3b82f6;
+
+
+}
+        #Container{
+            width: 1400px;
+            height: 1000px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+
+
+        }
+        #logo{
+            width: 230px;
+            height: 69px;
+            background-image: url("{{ asset('images/logo1.png') }}");
+            background-size: cover;
+        }
+        #menu{
+            width: 400px;
+            height: 69px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 30px;
+            font-family: Trebuchet MS, serif;
+        }
+        #menu p {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        #menu p:hover:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -1px;
+            left: 0;
+            background-color: #BB7AC3;
+            transform-origin: center;
+            animation: wave 0.40s ease-out;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: scale(1, 0.1);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1, 1);
+                opacity: 0.5;
+            }
+        }
+
+
+        #panier {
+            width: 200px;
+            height: 47px;;
+            background-size: cover;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top : 12px;
+            font-size: 18px;
+            font-family: Trebuchet MS, serif;
+            color: #222222;
+        }
+        #logout {
+            width: 80px;
+            height: 47px;
+        }
+
+        nav{
+            padding: 10px;
+            height: 70px;
+            width: 1650px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+        body{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('{{ asset('images/background4.jpg') }}');
+            background-size: cover;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+           font-size: 24px;
+
+        }
+
+        .pagination .page-item {
+            margin: 0 5px;
+        }
+
+        .pagination .page-link {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #ddd;
+        }
+
+
+    </style>
+{% endblock %}
