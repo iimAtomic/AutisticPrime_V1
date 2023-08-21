@@ -56,7 +56,9 @@ THANKS ! 😤
 
 
 
-<img width="960" alt="autistic" src="https://github.com/iimAtomic/AutisticPrime_V1/assets/71674056/3e759ff6-e414-4bdf-a6c9-7e1eec2a2683">
 
 
+<img width="960" alt="autistic" src="https://github.com/iimAtomic/AutisticPrime_V1/assets/71674056/22268cab-1e45-40dd-8aff-d5aa09c5f1e3">
+
+![mockup_portfolio-removebg-preview](https://github.com/iimAtomic/AutisticPrime_V1/assets/71674056/7a2cf6c2-d3e1-4f09-a446-8a1ba1310864)
 
