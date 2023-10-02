@@ -1,31 +1,64 @@
-# Symfony_medica_app
+# AutisticPrime_V1
 
-Réalisateur : VEGBA Lux
+[ENGLISH 🇺🇸]
 
-Il s'agit d'un projet de boutique privée, le *Lux E-SHOP*. Les utilisateurs doivent se connecter pour y accéder.
-Les technologies utilisées sont : Symfony, MySQL et PHP.
-Le front est fait en HTML, CSS et Twig.
+Directed by: VEGBA Lux
 
-L'admin a directement accès à une interface lui permettant de gérer l'ajout, la suppression et la modification des produits présentés sur le front. Il peut aussi creer les comptes des utilisateurs car c'est une boutique privé.
-Il peut également depuis le dashboard rejoindre la page du front où il y a le bouton dashboard inaccessible pour les simples utilisateurs. 
-Il peut aussi se déconnecter à tout moment.
+It is a site designed with the aim of digitizing and centralizing the data necessary for the learning of digital professions by autistic people.
+They can discuss between them thanks to a forum set up for this purpose with websocket. They have hearts specially prepared for them as well as a panel of events intended for their entertainment.
 
-      Utilisateur Admin existant:
-      Email : admin@gmail.com
-      Mdp : admin
+# TECHNOLOGY USED
 
-Le simple utilisateur a directement accès au front d'où il peut voir les produits proposés. 
-Il peut également se déconnecter à tout moment.
-
-      Utilisateur Client existant :
-      Email : user@gmail.com
-      Mdp : simpleUser
-
-Pour deployer l'application il sera peut etre nécessaire ce faire un **composer install** 
-Il faudra aussi probalement lancer un database create :  php bin/console doctrine:database:create
-une migration  migrate : php bin/console doctrine:migrations:migrate
-
-Merci ! 😤
+      - php
+      - symfony
+      - easy admin bundle
+      - native css
+      - database : MySQL
 
 
-![image](https://user-images.githubusercontent.com/71674056/229573967-566de9e8-bd12-4b41-a15f-f328b95f97af.png)
+The admin has direct access to an interface allowing him to manage the addition, deletion and modification of the products presented on the front. 
+
+      Existing Admin User:
+      Email: admin@gmail.com
+      Password: admin
+
+The simple user has direct access to the front from where he can see the different service, the cours and events.
+He can also disconnect at any time.
+
+      Existing Customer User:
+      Email: user@gmail.com
+      Password: simpleUser
+
+      You can create your user too
+
+# INSTALLATION
+
+You can either download the zip and open it in your code editor, or directly retrieve the link leading to this repository and enter it in your terminal with the usual commands to clone the project
+
+Minimum required :
+      
+      - symfony 5>
+      - compose
+      - phpMyadmin
+      - MySQL
+
+Best would be to have the current versions
+
+
+To deploy the application it may be necessary to do a **composer install**
+You will also probably need to run:
+
+      a database create: php bin/console doctrine:database:create
+      a migration migrate: php bin/console doctrine:migrations:migrate
+      a symfony starter : Symfony serve -d
+
+THANKS ! 😤
+
+
+
+
+
+<img width="960" alt="autistic" src="https://github.com/iimAtomic/AutisticPrime_V1/assets/71674056/22268cab-1e45-40dd-8aff-d5aa09c5f1e3">
+
+![mockup_portfolio-removebg-preview](https://github.com/iimAtomic/AutisticPrime_V1/assets/71674056/7a2cf6c2-d3e1-4f09-a446-8a1ba1310864)
+
